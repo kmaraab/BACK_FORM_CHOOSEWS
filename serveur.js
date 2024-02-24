@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require("express");
 const http = require('http');
-const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
@@ -19,8 +18,8 @@ const corsOptions = {
   origin: `${process.env.APP_URL}`
 };
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 
 app.use('/', [userRouteur]);
 
